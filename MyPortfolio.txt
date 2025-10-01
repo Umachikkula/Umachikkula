@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Umamaheshwari Chikkula | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f; /* A darker navy blue for the body */
+        }
+        .skill-card, .cert-card, .exp-card, .achieve-card {
+            display: flex;
+            flex-direction: column;
+        }
+        /* Simple spinner for loading state */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Staggered animation delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white">Sri Umamaheshwari</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="hover:text-cyan-400 transition duration-300">About</a>
+                <a href="#experience" class="hover:text-cyan-400 transition duration-300">Experience</a>
+                <a href="#skills" class="hover:text-cyan-400 transition duration-300">Skills</a>
+                <a href="#projects" class="hover:text-cyan-400 transition duration-300">Projects</a>
+                <a href="#contact" class="hover:text-cyan-400 transition duration-300">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#about" class="block hover:text-cyan-400 transition duration-300">About</a>
+            <a href="#experience" class="block hover:text-cyan-400 transition duration-300">Experience</a>
+            <a href="#skills" class="block hover:text-cyan-400 transition duration-300">Skills</a>
+            <a href="#projects" class="block hover:text-cyan-400 transition duration-300">Projects</a>
+            <a href="#contact" class="block hover:text-cyan-400 transition duration-300">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-on-scroll">Chikkula Sri Umamaheshwari</h1>
+                <p class="text-lg md:text-xl text-cyan-400 mb-8 animate-on-scroll delay-100">Aspiring Software Engineer | AI Enthusiast | Creative Technologist</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10 animate-on-scroll delay-200">
+                    <a href="#projects" class="bg-cyan-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-cyan-600 transition duration-300">View Projects</a>
+                    <a href="#contact" class="bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition duration-300">Contact Me</a>
+                    <a href="#" class="bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition duration-300">View Resume</a>
+                </div>
+
+                <div class="flex justify-center space-x-6 text-2xl animate-on-scroll delay-300">
+                    <a href="https://github.com/Umachikkula" target="_blank" class="hover:text-cyan-400 transition duration-300"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sri-uma-maheshwari-chikkula17" target="_blank" class="hover:text-cyan-400 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:chsriuma3018@gmail.com" class="hover:text-cyan-400 transition duration-300"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:7416124074" class="hover:text-cyan-400 transition duration-300"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl text-center animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
+                 <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded mb-8"></div>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I am an aspiring Software Engineer and passionate learner pursuing Computer Science and Engineering at Stanley College of Engineering and Technology for Women. With a strong foundation in Python, Data Structures, Algorithms, and Web Development, I thrive on solving real-world problems through technology.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mt-4">
+                    I enjoy working on innovative projects that combine creativity and functionality—ranging from Python full-stack development to AI-based applications. My goal is to build scalable, impactful solutions while continuously exploring trending developer tools and technologies.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mt-4">
+                    A proactive learner and team collaborator, I bring problem-solving mindset, adaptability, and eagerness to grow into every opportunity I take on.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Work Experience</h2>
+                    <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    <!-- Experience 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 exp-card animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-white">Python Intern</h3>
+                        <p class="text-cyan-400 font-medium">Virtunexa (AICTE Approved) | May 2025 - June 2025</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
+                            <li>Developed Python applications and small tools for real-time tasks.</li>
+                            <li>Gained hands-on experience with Python, problem-solving, and project management.</li>
+                            <li>Managed project code and collaborated on version control using GitHub.</li>
+                        </ul>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 exp-card animate-on-scroll delay-100">
+                        <h3 class="text-2xl font-bold text-white">Python Developer Intern</h3>
+                        <p class="text-cyan-400 font-medium">Internpe | Apr 2024 - May 2024</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
+                            <li>Built multiple Python-based mini-projects including games and calculators.</li>
+                            <li>Implemented logical algorithms and GUI features in Python.</li>
+                            <li>Learned project planning and time management.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Expertise Section -->
+        <section id="skills" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Skills & Expertise</h2>
+                    <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 skill-card animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-white mb-6">Languages</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Python</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>HTML & CSS</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>JavaScript</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 skill-card animate-on-scroll delay-100">
+                        <h3 class="text-2xl font-bold text-white mb-6">Libraries & Frameworks</h3>
+                        <ul class="space-y-3 text-gray-300">
+                             <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Django</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Pandas</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>NumPy</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Matplotlib</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 skill-card animate-on-scroll delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-6">Developer Tools</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Git & GitHub</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Docker</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>VS Code</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Visual Studio</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 skill-card animate-on-scroll delay-300">
+                        <h3 class="text-2xl font-bold text-white mb-6">Soft Skills</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Problem-Solving</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Team Collaboration</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Time Management</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Projects</h2>
+                    <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    <!-- Project 1 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll">
+                         <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Personal Health and Wellness Guide</h3>
+                            <p class="text-gray-400 mb-4">Built CareVibe, a personal wellness app offering mood-based tips, reminders, and diet guidance. Implemented reminders and a smart diet guide. Designed a mood-responsive UI with voice/text input.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">Python</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">Flask</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">Django</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">HTML</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">CSS</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll delay-100">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">3D Animation using Web Development</h3>
+                            <p class="text-gray-400 mb-4">Created an interactive 3D web animation using CSS/JS. Developed storyboards, models, and textures, ensuring smooth, realistic animation and cross-browser performance.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">HTML</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">CSS</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Project Sandbox Section -->
+        <section id="ai-sandbox" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl text-center animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">AI Project Sandbox</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded mb-8"></div>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">Curious what I could build next? Click the button below to generate a unique project idea, tailored to my skills, using the Gemini API.</p>
+                <button id="generate-idea-btn" class="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-cyan-600 transition duration-300 text-lg">
+                    ✨ Generate Project Idea
+                </button>
+                <div id="idea-container" class="mt-10 text-left">
+                    <!-- Generated idea will be displayed here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl text-center animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Certifications</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded mb-12"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 cert-card animate-on-scroll">
+                        <h3 class="text-xl font-bold text-white">Python Programming</h3>
+                        <p class="text-cyan-400">Udemy (2025)</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 cert-card animate-on-scroll delay-100">
+                        <h3 class="text-xl font-bold text-white">Cybersecurity Fundamentals</h3>
+                        <p class="text-cyan-400">IBM SkillsBuild (2024)</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 cert-card animate-on-scroll delay-200">
+                        <h3 class="text-xl font-bold text-white">Software Engineering</h3>
+                        <p class="text-cyan-400">Accenture Job Sim (2023)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+         <!-- Achievements & Participation Section -->
+        <section id="achievements" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl animate-on-scroll">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Achievements & Participation</h2>
+                    <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-left achieve-card">
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span><span>Completed a Machine Learning course on Google Cashcourse and received budget recognition. (2025)</span></li>
+                        <li class="flex items-start"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span><span>Earned Microsoft Learn skill badges demonstrating cloud and AI proficiency. (2025)</span></li>
+                        <li class="flex items-start"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span><span>Participated in Web Technology Project Expo at SCETW. (2024)</span></li>
+                        <li class="flex items-start"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span><span>Participated in Idea Innovation Bootcamp (T-hub) at METH. (2024)</span></li>
+                        <li class="flex items-start"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span><span>Attended Symposium on "Fostering An Entrepreneurial Mindset" at SCETW. (2023)</span></li>
+                         <li class="flex items-start"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span><span>Participated in Quantum Computing workshop from C-DAC. (2025)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 sm:py-24 bg-gray-900">
+             <div class="container mx-auto px-6 max-w-4xl text-center animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Education</h2>
+                 <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded mb-8"></div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-left max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white">Stanley College of Engineering and Technology for Women</h3>
+                    <p class="text-cyan-400 font-medium">B.E. in Computer Science & Engineering | 2022 - 2026</p>
+                    <p class="text-gray-300 mt-2">CGPA: 8.7</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-left max-w-2xl mx-auto mt-8">
+                    <h3 class="text-2xl font-bold text-white">Narayana Junior College</h3>
+                    <p class="text-cyan-400 font-medium">Intermediate | 2020 - 2022</p>
+                    <p class="text-gray-300 mt-2">CGPA: 7.3</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-left max-w-2xl mx-auto mt-8">
+                    <h3 class="text-2xl font-bold text-white">Fern Hill High School</h3>
+                    <p class="text-cyan-400 font-medium">Schooling | 10th Grade</p>
+                    <p class="text-gray-300 mt-2">GPA: 9.5</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 text-center animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Get In Touch</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded mb-8"></div>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">Have a question or want to work together?</p>
+                
+                <form action="#" method="POST" class="max-w-xl mx-auto text-left space-y-6">
+                    <div>
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" required class="w-full bg-gray-800 text-white border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300">
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" required class="w-full bg-gray-800 text-white border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300">
+                    </div>
+                    <div>
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea name="message" id="message" rows="5" placeholder="Message" required class="w-full bg-gray-800 text-white border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-cyan-600 transition duration-300 text-lg">Submit Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <div class="flex justify-center space-x-6 text-2xl mb-4">
+                <a href="https://github.com/Umachikkula" target="_blank" class="hover:text-cyan-400 transition duration-300"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sri-uma-maheshwari-chikkula17" target="_blank" class="hover:text-cyan-400 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:chsriuma3018@gmail.com" class="hover:text-cyan-400 transition duration-300"><i class="fas fa-envelope"></i></a>
+                <a href="tel:7416124074" class="hover:text-cyan-400 transition duration-300"><i class="fas fa-phone"></i></a>
+            </div>
+            <p>&copy; 2025 Sri Umamaheshwari Chikkula. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gemini API Project Idea Generator
+        const generateBtn = document.getElementById('generate-idea-btn');
+        const ideaContainer = document.getElementById('idea-container');
+
+        const callGeminiAPI = async () => {
+            ideaContainer.innerHTML = '<div class="loader"></div>';
+            generateBtn.disabled = true;
+            generateBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const userPrompt = `You are a senior tech recruiter creating a challenging project idea for a promising student. Based on the following skills: Python, JavaScript, HTML, CSS, Django, Pandas, NumPy, Docker, Git, and GitHub, generate a unique and impressive project idea. The project should be suitable for a portfolio. Provide the response as a single JSON object with three keys: "projectName", "description", and "techStack". The "techStack" should be an array of strings listing ONLY the relevant skills from the provided list.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            projectName: { type: "STRING" },
+                            description: { type: "STRING" },
+                            techStack: {
+                                type: "ARRAY",
+                                items: { type: "STRING" }
+                            }
+                        },
+                        required: ["projectName", "description", "techStack"]
+                    }
+                }
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content?.parts?.[0]?.text) {
+                    const projectIdea = JSON.parse(result.candidates[0].content.parts[0].text);
+                    displayIdea(projectIdea);
+                } else {
+                    throw new Error("Invalid response structure from API.");
+                }
+
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                ideaContainer.innerHTML = `<div class="bg-red-900/50 border border-red-700 text-red-300 p-4 rounded-lg">
+                    <p><strong class="font-bold">Oops!</strong> Something went wrong while generating the idea. Please try again later.</p>
+                </div>`;
+            } finally {
+                generateBtn.disabled = false;
+                 generateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        };
+
+        const displayIdea = (idea) => {
+            const techStackHTML = idea.techStack.map(tech => 
+                `<span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded">${tech}</span>`
+            ).join('');
+
+            ideaContainer.innerHTML = `
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-500/10 text-left">
+                    <h3 class="text-2xl font-bold text-white">${idea.projectName}</h3>
+                    <p class="text-gray-300 mt-4 mb-6">${idea.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${techStackHTML}
+                    </div>
+                </div>
+            `;
+        };
+
+        generateBtn.addEventListener('click', callGeminiAPI);
+
+        // Scroll Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { 
+                threshold: 0.1 
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Trigger animation for hero section immediately
+            const heroElements = document.querySelectorAll('#home .animate-on-scroll');
+            heroElements.forEach(el => el.classList.add('is-visible'));
+        });
+
+    </script>
+</body>
+</html>
+
